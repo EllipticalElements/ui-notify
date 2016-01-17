@@ -1,7 +1,7 @@
 {
   "name": "ui-notify",
   "description": "semantic notification web component",
-  "version":"1.0.0",
+  "version":"1.0.1",
   "main": "ui-notify.html",
   "authors": [
     "S. Francis"
