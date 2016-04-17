@@ -1,26 +1,56 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../elliptical-polymer-behaviors/component-behavior.html">
 <link rel="import" href="../ui-behaviors/notification.html">
 
-<style>
-    ui-notify{
-        display:none;
-    }
-</style>
+<dom-module id="ui-notify">
+    <style>
+      :host{
+          display:none;
+      }
+    </style>
+</dom-module>
+
 <script>
-Elliptical(function(){
-    $.element('ui-notify',[Elliptical.Behaviors.Notification],{
-        options: {
-            proxyUpgrade:true,
-            cssClass:'info',
-            message:'Processing...',
-            terminate:false,
-            terminateTimeout: 3000,
-            terminateDelay:1000,
-            animationDuration:1200,
-            top:null,
-            containerSelector:'body'
+
+    Polymer({
+
+        is: 'ui-notify',
+
+        behaviors:[Elliptical.ComponentBehavior,Elliptical.Behaviors.Notification],
+
+        properties: {
+            cssClass:{
+                type:String,
+                value:'info'
+            },
+            message:{
+                type:String,
+                value:'Processing...'
+            },
+            terminate:{
+                type:Boolean,
+                value:false
+            },
+            terminateTimeout: {
+                value:3000
+            },
+            terminateDelay:{
+                value:1000
+            },
+            animationDuration:{
+                value:1200
+            },
+            top:{
+                value:null
+            },
+            containerSelector:{
+                type:String,
+                value:'body'
+            }
+
         },
 
-        _initElement: function(){
+        ready:function(){
             this._data.set('cssClass',this.cssClass);
             this._data.set('element',null);
             this._data.set('isVisible',false);
@@ -28,5 +58,5 @@ Elliptical(function(){
         }
 
     });
-});
+
 </script>
