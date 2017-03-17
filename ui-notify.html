@@ -55,6 +55,10 @@
             this._data.set('element',null);
             this._data.set('isVisible',false);
             this._initNotification();
+        },
+
+        get visible(){
+          return this.element.is(":visible");
         }
 
     });
